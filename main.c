@@ -18,13 +18,19 @@ int main(void) {
 	Currencies currencies;
 
 	curInit(currencies);
-	printf("%s\n",currencies[0].abbrev);
+	//int i;
+	//printf("%s",currencies[0].fullName);
 
 	UiMenu menu;
-	initMenu(menu, currencies);
 
+//	menu.entries[0].title = malloc((strlen(UI_MENUENTRY_1_TEXT)+1)*sizeof(char));
+//	strncpy(menu.entries[0].title,UI_MENUENTRY_1_TEXT,strlen(UI_MENUENTRY_1_TEXT)+1);
+
+	menu.entries[0].title = strdup(UI_MENUENTRY_1_TEXT);
+	//initMenu(menu, currencies);
 
 	printf("%s\n",menu.entries[0].title);
+	puts("");
 
 	return EXIT_SUCCESS;
 }

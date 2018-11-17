@@ -54,11 +54,9 @@ struct winsize getTermSize() {
  *******************/
 
 void initMenu(UiMenu menu, Currencies currencies) {
-	int i;
-	//menu.entries[0].title = malloc((strlen(UI_MENUENTRY_1_TEXT)+1)*sizeof(char));
-	//strncpy(menu.entries[0].title,UI_MENUENTRY_1_TEXT,strlen(UI_MENUENTRY_1_TEXT)+1);
-	//for(i = 1 ; i < CUR_COUNT ; i++) sprintf(menu.entries[i].title,"%s (%s) :",currencies[i-1].fullName,currencies[i-1].abbrev);
-	// last ligne chargement
+	menu.entries[0].title = strdup(UI_MENUENTRY_1_TEXT);
+	// for(i = 1 ; i < CUR_COUNT ; i++) sprintf(menu.entries[i].title,"%s (%s) :",currencies[i-1].fullName,currencies[i-1].abbrev);
+	// last ligne : chargement, géré par la boucle évènementielle et le statut
 }
 
 void displayTitle(int width) {
@@ -148,22 +146,30 @@ void displaySkel(int height, int width) {
 }
 
 // Display individual entries
-void displayEntry(UiMenuEntry menuentry, int sel) {
+void displayEntry(UiMenuEntry menuentry, int width) {
+//	 termGoto(3,i+2); // TODO replace by actual relative moves
+
+}
+
+void displayEntryHighlight(UiMenuEntry menuentry, int width) {
 	 // highlight si menu.sel
+//	 termGoto(3,i+2);
 }
 
 // Display the whole menu : header, entries and footer (?)
-void displayMenu(UiMenu menu) {
+void displayMenu(UiMenu menu, int width) {
 	int i;
 	//displayTitle();
-	for(i = 0 ; i < UI_MENUSIZE ; i++) displayEntry(menu.entries[i], i);
-		
+	for(i = 0 ; i < UI_MENUSIZE ; i++) {
+		if(i != menu.sel) displayEntry(menu.entries[i], width);
+		else displayEntryHighlight(menu.entries[i], width);
+	}
 }
 
 void displayRefresh() {
 	struct winsize w = getTermSize();
 	displaySkel(w.ws_row, w.ws_col);
-
+	// displayMenu();
 	fflush(stdout);
 }
 

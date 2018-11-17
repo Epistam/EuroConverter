@@ -28,7 +28,7 @@ typedef struct {
 
 typedef struct {
 	int sel;
-	UiMenuEntry entries[CUR_COUNT + UI_MENUSIZE]; 
+	UiMenuEntry entries[4 + UI_MENUSIZE];
 } UiMenu;
 
 void initMenu(UiMenu menu, Currencies currencies);
@@ -36,8 +36,9 @@ void initMenu(UiMenu menu, Currencies currencies);
 void displayTitle(int width);
 void displaySkel(int height, int width);
 void displayDecorations(int height, int width);
-void displayEntry(UiMenuEntry menuentry, int sel);
-void displayMenu(UiMenu menu);
+void displayEntry(UiMenuEntry menuentry, int width);
+void displayEntryHighlight(UiMenuEntry menuentry, int width);
+void displayMenu(UiMenu menu, int width);
 void displayRefresh();
 
 /************************
