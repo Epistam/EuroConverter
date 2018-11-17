@@ -1,2 +1,4 @@
 meta/*
 .session.vim
+*.swp
+include/*.swp

@@ -20,5 +20,11 @@ int main(void) {
 	curInit(currencies);
 	printf("%s\n",currencies[0].abbrev);
 
+	UiMenu menu;
+	initMenu(menu, currencies);
+
+
+	printf("%s\n",menu.entries[0].title);
+
 	return EXIT_SUCCESS;
 }

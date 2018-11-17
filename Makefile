@@ -2,7 +2,7 @@
 CC=gcc
 CFLAGS=-Wall -O2 #-fdiagnostics-color=always gcc >=4.9
 LDFLAGS=-lm
-EXEC=currencyConverter
+EXEC=EuroConverter
 SRC=$(wildcard *.c)
 OBJ=$(SRC:.c=.o)
 

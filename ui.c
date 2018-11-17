@@ -53,6 +53,14 @@ struct winsize getTermSize() {
  * Menu management *
  *******************/
 
+void initMenu(UiMenu menu, Currencies currencies) {
+	int i;
+	//menu.entries[0].title = malloc((strlen(UI_MENUENTRY_1_TEXT)+1)*sizeof(char));
+	//strncpy(menu.entries[0].title,UI_MENUENTRY_1_TEXT,strlen(UI_MENUENTRY_1_TEXT)+1);
+	//for(i = 1 ; i < CUR_COUNT ; i++) sprintf(menu.entries[i].title,"%s (%s) :",currencies[i-1].fullName,currencies[i-1].abbrev);
+	// last ligne chargement
+}
+
 void displayTitle(int width) {
 	int i;
 	fputs("\033[48;5;15m",stdout); // Set line background color

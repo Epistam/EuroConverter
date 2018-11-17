@@ -17,14 +17,13 @@ struct winsize getTermSize();
 
 #define UI_MENUSIZE 2 // Menu size without currencies
 
-#define UI_MENU_TITLESIZE 20
-#define UI_MENU_VALUESIZE 20
+#define UI_MENUENTRY_1_TEXT "Valeur à convertir (euros) :"
 
 #define UI_MENUHEADER "Epistam's Wonderful Money Trading Buddy"
 
 typedef struct {
 	char *title;
-	char value[UI_MENU_VALUESIZE];
+	char *value;
 } UiMenuEntry;
 
 typedef struct {
@@ -32,7 +31,7 @@ typedef struct {
 	UiMenuEntry entries[CUR_COUNT + UI_MENUSIZE]; 
 } UiMenu;
 
-void initMenu(UiMenu menu);
+void initMenu(UiMenu menu, Currencies currencies);
 
 void displayTitle(int width);
 void displaySkel(int height, int width);
